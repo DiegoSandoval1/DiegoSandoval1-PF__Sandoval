@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+
+
+html{
+    background-color: #0A5C36;
+}
+
+.navbar-brand
+{
+  font-size: 50px;
+  filter: brightness(0) invert(1);
+  background-color: rgba(0, 0, 0, 0.062);
+}
+
+.navbar{
+    font-size: 25px;
+}
+
+body {
+    font-family: "MedievalSharp", cursive;
+    background-color: #0A5C36;
+}
+
+
+h1{
+    background-color: #18392B;
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+}
+
+h2{
+    background-color: #18392B;
+    color: rgb(255, 255, 255);
+}
+
+.container{
+    background-color: #0A5C36;
+}
+
+.container_2{
+    background-color: #18392B;
+}
+
+.games_text{
+    color: rgb(255, 255, 255);
+}
