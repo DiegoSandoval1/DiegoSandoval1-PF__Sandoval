@@ -1,10 +1,13 @@
+/*Tipografía importada de google fonts*/
 @import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
 
 
+/*Background del HTML*/
 html{
     background-color: #0A5C36;
 }
 
+/*Modificaciones al navbar*/
 .navbar-brand
 {
   font-size: 50px;
@@ -16,6 +19,7 @@ html{
     font-size: 25px;
 }
 
+/*Colores y cambios al body*/
 body {
     font-family: "MedievalSharp", cursive;
     background-color: #0A5C36;
@@ -40,6 +44,10 @@ h2{
 
 .container_2{
     background-color: #18392B;
+}
+
+.card-img-top{
+    width: 25%;
 }
 
 .games_text{
