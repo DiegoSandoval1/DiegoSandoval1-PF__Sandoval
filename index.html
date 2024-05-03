@@ -24,7 +24,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand d-flex align-items-center" href="#">
-                    <img src="recursos_visuales/imagenes/logo_orko.png" alt="Logo" width="60" height="60" class="d-inline-block align-text-center">
+                    <img src="imagenes/logo_orko.png" alt="Logo" width="60" height="60" class="d-inline-block align-text-center">
                     El Bar Orko de Gutrekka
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -51,80 +51,24 @@
 
     </header>
 
-    <main>
-      <!--Productos de la tienda-->
-        <div class="container">
-            <h2 class="titulo my-4 d-flex justify-content-center">Nueztroz tragoz</h2>
-          
-            <div class="row">
-              <div class="col-md-4 mb-4">
-                <div class="card border-3 border-warning mb-6">
-                  <img src="recursos_visuales/imagenes/dakaKola.jpg" class="card-img-top mx-auto mt-3 w-25" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Coka OrKala</h5>
-                    <p class="card-text">Mejor ke kualkier Kola.</p>
-                    <a href="#" class="btn btn-primary">Ver detalles</a>
-                  </div>
+        <div class="d-flex justify-content-center">
+            <div class="container text-center">
+                <div class="row">
+                    <main id="tragos" class="col-sm-8 row"></main>
+                    <!-- Carro -->
+                    <aside class="mb-4">
+                        <h2>Carrito de Tragoz</h2>
+                        <ul id="carrito" class="list-group"></ul>
+                        <hr>
+                        <!-- Precio total -->
+                        <p class="text-right">Total: <span id="total"></span>$</p>
+                        <button id="boton-comprar" class="btn btn-primary">Finalizar Compra</button>
+                        <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
+                    </aside>
                 </div>
-              </div>
-              
-              <div class="col-md-4 mb-4">
-                <div class="card border-3 border-warning mb-6">
-                  <img src="recursos_visuales/imagenes/fernetGarrapato.jpg" class="card-img-top mx-auto mt-3" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Fernet Garrapato</h5>
-                    <p class="card-text">Descripción del producto 2.</p>
-                    <a href="#" class="btn btn-primary">Ver detalles</a>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="col-md-4 mb-4">
-                <div class="card border-3 border-warning mb-6">
-                  <img src="recursos_visuales/imagenes/vinoOrko.jpg" class="card-img-top mx-auto mt-3" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Vino Orko</h5>
-                    <p class="card-text">Descripción del producto 3.</p>
-                    <a href="#" class="btn btn-primary">Ver detalles</a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-4 mb-4">
-                <div class="card border-3 border-warning mb-6">
-                  <img src="recursos_visuales/imagenes/zervezaOrka.jpg" class="card-img-top mx-auto mt-3" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Zerveza Orka</h5>
-                    <p class="card-text">Descripción del producto 3.</p>
-                    <a href="#" class="btn btn-primary">Ver detalles</a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-4 mb-4">
-                <div class="card border-3 border-warning mb-6">
-                  <img src="recursos_visuales/imagenes/ronOrko.jpg" class="card-img-top mx-auto mt-3" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Ron Orko</h5>
-                    <p class="card-text">Descripción del producto 3.</p>
-                    <a href="#" class="btn btn-primary">Ver detalles</a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-4 mb-4">
-                <div class="card border-3 border-warning mb-6">
-                  <img src="recursos_visuales/imagenes/Jack Danielz.jpg" class="card-img-top mx-auto mt-3" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Jack Danielz</h5>
-                    <p class="card-text">Descripción del producto 3.</p>
-                    <a href="#" class="btn btn-primary">Ver detalles</a>
-                  </div>
-                </div>
-              </div>
             </div>
-          </div>
-    </main>
+        </div>        
+    
 
     <!--Footer-->
     <div class="container_2 my-5">

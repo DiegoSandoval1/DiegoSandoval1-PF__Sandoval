@@ -4,7 +4,12 @@
 
 /*Background del HTML*/
 html{
-    background-color: #e5ebe8;
+    background-color: #0A5C36;
+}
+
+/*Background del noAki.html*/
+.noAki_html{
+    background-image: url(../imagenes/ORK_WALLPAPER_1.jpg);
 }
 
 /*Modificaciones al navbar*/
@@ -32,6 +37,12 @@ body {
     color: rgb(255, 255, 255);
     display: flex;
     justify-content: center;
+}
+
+.body_de_no_aki{
+    display: flex;
+    justify-content: center;
+    background-color: #18392b11;
 }
 
 .container{
