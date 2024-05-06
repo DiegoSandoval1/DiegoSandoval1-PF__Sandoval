@@ -1,42 +1,3 @@
-//hay que usar eventlistener
-
-const tragos = [
-  {
-      "trago": "Zerveza Kryztal",
-      "Precio": 1000,
-      "foto_del_producto": "imagenes/zervezaOrka.jpg",
-  },
-  {
-      "trago": "Vino Orko",
-      "Precio": 2000,
-      "foto_del_producto": "imagenes/vinoOrko.jpg",
-  },
-  {
-      "trago": "Dakka Kola",
-      "Precio": 500,
-      "foto_del_producto": "imagenes/dakaKola.jpg",
-  },
-  {
-      "trago": "Fernet Garrapato",
-      "Precio": 1000,
-      "foto_del_producto": "imagenes/fernetGarrapato.jpg",
-  },
-  {
-      "trago": "Ron Orko",
-      "Precio": 3000,
-      "foto_del_producto": "imagenes/ronOrko.jpg",
-  },
-  {
-      "trago": "Jack Danielz",
-      "Precio": 5000,
-      "foto_del_producto": "imagenes/Jack Danielz.jpg",
-  },
-];
-
-const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-let validadorDeTragos = false;
-
-
 //Sweet alert y pregunta por edad
 const confirmacionDeEdad = async () => {
   const { isConfirmed } = await Swal.fire({
@@ -62,16 +23,32 @@ const confirmacionDeEdad = async () => {
   }
 }
 
+let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+let validadorDeTragos = false;
+
+const obtenerTragos = async () => {
+  try {
+    const response = await fetch('./tragos.json');
+    if (!response.ok) {
+      throw new Error('Error al obtener los tragos');
+    }
+    const tragos = await response.json();
+    mostrarTragos(tragos);
+  } catch (error) {
+    console.error('Error al cargar el archivo JSON:', error);
+  }
+};
+
 // Tragos a elegir 
 
-const mostrarTragos = () => {
+const mostrarTragos = (tragos) => {
   const cajaDeTragos = document.getElementById("tragos");
   tragos.forEach(trago => {
       const tragoElement = document.createElement("div");
-      tragoElement.innerHTML = `
-          <img src="${trago.foto_del_producto}">
-          <p>${trago.trago} - Precio: $${trago.Precio}</p>
-          <button onclick="agregarAlCarrito('${trago.trago}', ${trago.Precio})">Agregar al carrito</button>
+      tragoElement.innerHTML = `       
+            <img src="${trago.foto_del_producto}">
+            <p>${trago.trago} - Precio: $${trago.Precio}</p>
+            <button onclick="agregarAlCarrito('${trago.trago}', ${trago.Precio})">Agregar al carrito</button>
       `;
       cajaDeTragos.appendChild(tragoElement);
       validadorDeTragos = true;
@@ -101,14 +78,14 @@ const mostrarCarrito = () => {
   });
 }
 
-// Finalizar la compra
+// Finalizar y borrar la compra
 
 const finalizarCompra = () => {
   let total = 0;
   carrito.forEach(item => {
       total += item.precio;
   });
-  alert(`Compra finalizada Waaaghhh!!! ¡AHORA A PAGAR!: $${total}`);
+  Swal.fire(`Compra finalizada Waaaghhh!!! ¡AHORA A PAGAR!: $${total}`);
 }
 
 const borrarCompra = () => {
@@ -118,6 +95,11 @@ const borrarCompra = () => {
 }
 
 //Eventlisters
+
+document.addEventListener('DOMContentLoaded', function() {
+  confirmacionDeEdad();
+  obtenerTragos();
+});
 
 document.addEventListener("DOMContentLoaded", function() {
   const botonVaciar = document.getElementById("boton-vaciar");
@@ -131,8 +113,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 //llamado de funciones 
-
-confirmacionDeEdad();
 mostrarTragos();
 
 

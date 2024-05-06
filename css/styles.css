@@ -45,9 +45,23 @@ body {
     background-color: #18392b11;
 }
 
-.container{
-    background-color: #0A5C36;
-}
+#tragos {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr); 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 40px; 
+  }
+  
+  #tragos div {
+    border: 1px solid #cccccc;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  #tragos img {
+    max-width: 100%;
+    height: auto;
+  }
 
 .container_2{
     background-color: #18392B;
