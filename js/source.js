@@ -46,9 +46,14 @@ const mostrarTragos = (tragos) => {
   tragos.forEach(trago => {
       const tragoElement = document.createElement("div");
       tragoElement.innerHTML = `       
-            <img src="${trago.foto_del_producto}">
-            <p>${trago.trago} - Precio: $${trago.Precio}</p>
-            <button onclick="agregarAlCarrito('${trago.trago}', ${trago.Precio})">Agregar al carrito</button>
+      <div class="card">
+      <img class="card-img-top mx-auto" src="${trago.foto_del_producto}">
+      <div class="card-body">
+        <h5 class="card-title">${trago.trago}</h5>
+        Precio: $${trago.Precio}</p>
+        <button onclick="agregarAlCarrito('${trago.trago}', ${trago.Precio})">Agregar al carrito</button>
+      </div>
+    </div>
       `;
       cajaDeTragos.appendChild(tragoElement);
       validadorDeTragos = true;
