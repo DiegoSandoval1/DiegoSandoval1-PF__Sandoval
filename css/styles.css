@@ -56,6 +56,10 @@ body {
   
 /*Manejos de cosas aledañas*/
 
+.good{
+    font-size: 30px;
+}
+
 .container_2{
     background-color: #18392B;
 }

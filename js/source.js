@@ -73,8 +73,10 @@ const agregarAlCarrito = (trago, precio) => {
   const item = { trago, precio };
   carrito.push(item);
   mostrarCarrito();
+  Totales();
   localStorage.setItem('carrito', JSON.stringify(carrito));
 }
+
 
 const mostrarCarrito = () => {
   const carro = document.getElementById("carro");
@@ -84,7 +86,27 @@ const mostrarCarrito = () => {
       itemElement.innerText = `${item.trago} - Precio: $${item.precio}`;
       carro.appendChild(itemElement);
   });
+  Totales(); 
 }
+
+// Total de las compras para ser mostradas en el carro
+
+const Totales = () => {
+  let total = 0;
+  if (carrito.length > 0) {
+    carrito.forEach(item => {
+      total += item.precio;
+    });
+  }
+
+  let totalDeCosas = document.getElementById("total_a_pagar");
+  totalDeCosas.innerText = `Total: $${total}`;
+  
+  if (total === 0) {
+    totalDeCosas.innerText = `Total: $${total}`;
+  }
+}
+
 
 // Finalizar y borrar la compra
 
@@ -101,7 +123,7 @@ const finalizarCompra = () => {
 
 const borrarCompra = () => {
   carrito.splice(0, carrito.length);
-  localStorage.setItem('carrito', JSON.stringify(carrito)); 
+  localStorage.setItem('carrito', JSON.stringify(carrito));
   mostrarCarrito();
 }
 
@@ -129,5 +151,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 //llamado de funciones 
 mostrarTragos();
+
+
 
 
