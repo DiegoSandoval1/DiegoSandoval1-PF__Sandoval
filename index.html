@@ -46,22 +46,24 @@
                 </div>
             </div>
         </nav>
-    
+        
+        <!--El titulo de bienvenida-->
         <h1 class="titulo">¡Bienvenidoz!</h1>
 
     </header>
 
+    <!--Aquí esta el carro siendo dibujado desde el archivo source.js-->
     <div class="d-flex justify-content-center p-3">
         <div class="container text-center">
             <div class="row">
                 <main id="tragos" class="row"></main>
-                <!-- Carro -->
                 <aside class="mb-4 p-4">
+                    <!--Aqui estan los productos siendo dibujados-->
                     <h2>Carrito de Tragoz</h2>
                     <ul id="carro" class="list-group"></ul>
                     <hr>
-                    <!-- Precio total -->
-                    <p class="text-right">Total: <span id="total"></span>$</p>
+                    <!-- Botones para comprar y vaciar el carro -->
+                    <p class="text-right">Total: $<span id="total"></span></p>
                     <button id="boton-comprar" class="btn btn-primary">Finalizar</button>
                     <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
                 </aside>

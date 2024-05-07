@@ -1,4 +1,4 @@
-//Sweet alert y pregunta por edad
+//Sweet alert y pregunta por edad para entrar al sitio
 const confirmacionDeEdad = async () => {
   const { isConfirmed } = await Swal.fire({
     title: '¡Bienvenido HUMIE!',
@@ -23,12 +23,15 @@ const confirmacionDeEdad = async () => {
   }
 }
 
+//Variables y el localStorage de JSON
+
 let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 let validadorDeTragos = false;
 
+//El Fetch
 const obtenerTragos = async () => {
   try {
-    const response = await fetch('./tragos.json');
+    const response = await fetch('/JSON/tragos.json');
     if (!response.ok) {
       throw new Error('Error al obtener los tragos');
     }
@@ -46,7 +49,7 @@ const mostrarTragos = (tragos) => {
   tragos.forEach(trago => {
       const tragoElement = document.createElement("div");
       tragoElement.innerHTML = `       
-      <div class="card">
+      <div class="card border-5 border-warning">
       <img class="card-img-top mx-auto" src="${trago.foto_del_producto}">
       <div class="card-body">
         <h5 class="card-title">${trago.trago}</h5>
@@ -91,6 +94,9 @@ const finalizarCompra = () => {
       total += item.precio;
   });
   Swal.fire(`Compra finalizada Waaaghhh!!! ¡AHORA A PAGAR!: $${total}`);
+  carrito.splice(0, carrito.length);
+  localStorage.setItem('carrito', JSON.stringify(carrito)); 
+  mostrarCarrito();
 }
 
 const borrarCompra = () => {
@@ -101,19 +107,23 @@ const borrarCompra = () => {
 
 //Eventlisters
 
+//Eventlister del Fetch
 document.addEventListener('DOMContentLoaded', function() {
   confirmacionDeEdad();
   obtenerTragos();
 });
 
+
+//Eventlister del boton de vaciar el carro
 document.addEventListener("DOMContentLoaded", function() {
   const botonVaciar = document.getElementById("boton-vaciar");
   botonVaciar.addEventListener("click", borrarCompra);
 });
 
+//Eventlister del boton de compra
 document.addEventListener("DOMContentLoaded", function() {
-  const botonVaciar = document.getElementById("boton-comprar");
-  botonVaciar.addEventListener("click", finalizarCompra);
+  const botonComprar = document.getElementById("boton-comprar");
+  botonComprar.addEventListener("click", finalizarCompra);
 });
 
 

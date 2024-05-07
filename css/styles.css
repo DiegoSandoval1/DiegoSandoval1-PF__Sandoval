@@ -24,7 +24,7 @@ html{
     font-size: 25px;
 }
 
-/*Colores y cambios al body*/
+/*Colores y cambios del body*/
 body {
     font-family: "MedievalSharp", cursive;
     background-color: #0A5C36;
@@ -45,6 +45,8 @@ body {
     background-color: #18392b11;
 }
 
+/* Grid para la tienda de tragos*/
+
 #tragos {
     display: grid;
     grid-template-rows: repeat(2, 1fr); 
@@ -52,6 +54,7 @@ body {
     gap: 20px; 
   }
   
+/*Manejos de cosas aledañas*/
 
 .container_2{
     background-color: #18392B;
