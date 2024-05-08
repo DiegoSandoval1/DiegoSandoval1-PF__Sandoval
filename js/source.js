@@ -14,7 +14,7 @@ const confirmacionDeEdad = async () => {
   });
 
   if (isConfirmed) {
-    Swal.fire("¡Uneté al Waaaghh!!");;
+    Swal.fire("¡Uneté al Waaaghh!!");
   } else {
     Swal.fire("¡Alejate humie!");
     setTimeout(() => {
@@ -26,7 +26,6 @@ const confirmacionDeEdad = async () => {
 //Variables y el localStorage de JSON
 
 let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-let validadorDeTragos = false;
 
 //El Fetch
 const obtenerTragos = async () => {
@@ -38,7 +37,16 @@ const obtenerTragos = async () => {
     const tragos = await response.json();
     mostrarTragos(tragos);
   } catch (error) {
-    console.error('Error al cargar el archivo JSON:', error);
+    console.error('Error al kargar el archivo JSON:', error);
+    Swal.fire({
+      imageUrl: "imagenes/logo_orko.png",
+      imageWidth: 140, 
+      imageHeight: 200,
+      title: 'Error',
+      text: 'Hubo un error al kargar loz tragoz ¡Hazlo de nuevo!',
+    });
+  } finally {
+    document.getElementById("imagenDeKarga").classList.remove("mostrarGif");
   }
 };
 
@@ -61,10 +69,6 @@ const mostrarTragos = (tragos) => {
       cajaDeTragos.appendChild(tragoElement);
       validadorDeTragos = true;
   });
-  console.log(validadorDeTragos);
-  if (validadorDeTragos == true){
-    const botonTrue = document.createElement("div");
-  }
 }
 
 // Carrito 
