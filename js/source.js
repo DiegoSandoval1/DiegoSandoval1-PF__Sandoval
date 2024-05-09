@@ -27,21 +27,27 @@ const confirmacionDeEdad = async () => {
 
 let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
-//El Fetch
+//El Apis y Fetch
+
+// Api del clima 
 const obtenerTiempoSantiago = async () => {
   try {
     const response = await fetch('https://api.openweathermap.org/data/2.5/weather?q=Santiago,cl&appid=5fa11a68a777a74282cfe971b681cf2d&units=metric');
     if (!response.ok) {
-      throw new Error('Error al obtener el tiempo en Santiago');
+      throw new Error('Error al obtener el tiempo en Zantiago');
     }
     const data = await response.json();
     return data.main.temp;
   } catch (error) {
-    console.error('Error al obtener el tiempo en Santiago:', error);
-    return 'No se pudo obtener el tiempo en Santiago.';
+    console.error('Error al obtener el tiempo en Zantiago:', error);
+    return 'No se pudo obtener el tiempo en Zantiago.';
+  } finally {
+    document.getElementById("imagenDeKarga").classList.remove("mostrarGif");
   }
+
 };
 
+//Llamado del JSON
 const obtenerTragos = async () => {
   try {
     const response = await fetch('/JSON/tragos.json');
@@ -126,7 +132,7 @@ const Totales = () => {
 }
 
 
-// Finalizar y borrar la compra
+// Finalizar la compra 
 
 const finalizarCompra = () => {
   let total = 0;
@@ -139,8 +145,10 @@ const finalizarCompra = () => {
   mostrarCarrito();
 }
 
-const borrarCompra = () => {
-  carrito.splice(0, carrito.length);
+// Borrar la compra
+
+const borrarCompra = (index) => {
+  carrito.splice(index, 1); 
   localStorage.setItem('carrito', JSON.stringify(carrito));
   mostrarCarrito();
 }
