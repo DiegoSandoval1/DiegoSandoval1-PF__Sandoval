@@ -28,6 +28,20 @@ const confirmacionDeEdad = async () => {
 let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
 //El Fetch
+const obtenerTiempoSantiago = async () => {
+  try {
+    const response = await fetch('https://api.openweathermap.org/data/2.5/weather?q=Santiago,cl&appid=5fa11a68a777a74282cfe971b681cf2d&units=metric');
+    if (!response.ok) {
+      throw new Error('Error al obtener el tiempo en Santiago');
+    }
+    const data = await response.json();
+    return data.main.temp;
+  } catch (error) {
+    console.error('Error al obtener el tiempo en Santiago:', error);
+    return 'No se pudo obtener el tiempo en Santiago.';
+  }
+};
+
 const obtenerTragos = async () => {
   try {
     const response = await fetch('/JSON/tragos.json');
@@ -134,9 +148,11 @@ const borrarCompra = () => {
 //Eventlisters
 
 //Eventlister del Fetch
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
   confirmacionDeEdad();
   obtenerTragos();
+  const temperaturaSantiago = await obtenerTiempoSantiago();
+  document.getElementById('temperatura-santiago').textContent = temperaturaSantiago;
 });
 
 
@@ -155,7 +171,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 //llamado de funciones 
 mostrarTragos();
-
 
 
 
